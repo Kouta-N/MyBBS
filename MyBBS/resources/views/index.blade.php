@@ -3,13 +3,16 @@
         MyBBS
     </x-slot>
 
-    <h1>My BBS</h1>
+    <h1>
+        <span>My BBS</span>
+        <a href="{{ route('posts.create') }}">[Add]</a>
+    </h1>
     <ul>
-        @forelse($posts as $index => $post)
+        @forelse($posts as $post)
         <li>
-            <a href="{{route('posts.show',$index)}}">
+            <a href="{{route('posts.show',$post)}}">
             {{-- href="/posts/{{$index}}"と同じ意味 --}}
-            {{$post}}
+            {{$post->title}}
             </a>
         </li>
         @empty
